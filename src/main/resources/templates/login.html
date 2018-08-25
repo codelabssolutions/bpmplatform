@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org" 
+	 xmlns:form="http://www.springframework.org/tags/form">
 
 <head>
 	<title>Spring Security Tutorial</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
@@ -38,7 +37,7 @@
 			  		<button type="submit" class="btn btn-link">Forget Password ?</button>
 			  	</div>
 			  	<div class="col-md-6 text-right">
-			  		<a href="#" class="btn btn-link" data-toggle="modal" data-target="#myModal">Create New Account</a>
+			  		<a href="#" class="btn btn-link" data-toggle="modal" data-target="#myModal">Create Account</a>
 			  	</div>
 			  </div>
 			</form>
@@ -63,12 +62,14 @@
 								<div class="form-group">
 									<label>First Name</label>
 				                    <input type="text" name="name" class="form-control" placeholder="First Name" required>
+									<form:errors path="name"/>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Last Name</label>
 									<input type="text" name="lastName" class="form-control" placeholder="Last Name" required>							
+									<form:errors path="lastName"/>
 								</div>
 							</div>
 						</div>
@@ -92,7 +93,7 @@
 								<div class="form-group">
 									<label>Password</label>
 									<input type="password" name="password" class="form-control" placeholder="Password" required>
-									
+									<form:errors path="password"/>
 								</div>
 							</div>
 							<div class="col-md-6">

@@ -4,32 +4,62 @@
 
 <head>
 <title>Admin Page</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<div class="container">
-	
-		<form th:action="@{/logout}" method="get">
-			<button class="btn btn-md btn-danger btn-block" name="registration"
-				type="Submit">Logout</button>
-		</form>    
-		
-		<div class="panel-group" style="margin-top:40px">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<span th:utext="${userName}"></span>
-				</div>
-				<div class="panel-body">
-					<img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer" /> 
-				</div>
-				<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+		<div class="wrapper">
+		<div class="header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6 left-area">
+						<div class="col-md-3">
+							<div class="logo">
+								<h4>BPM Web App</h4>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div class="input-group input-area">
+						      <input type="text" class="form-control" placeholder="Search for...">
+						      <span class="input-group-btn">
+						        <button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default" type="button">
+						        	<span class="caret"></span>
+    								<span class="sr-only">Toggle Dropdown</span>
+						        </button>
+						      </span>
+						    </div>
+						</div>
+					</div>	
+					<div class="col-lg-6 right-area">
+						<ul class="nav navbar-nav navbar-right link">
+							<li><a href="#"><i class="fas fa-trash-alt"></i>Delet Busniess Process</a></li>
+							<li><a href="#"><i class="fas fa-plus"></i>New Busniess Process</a></li>
+							<li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+							<li><a href="#" cursor:pointer" onclick="openNav()"><i class="fas fa-cog"></i></a></li>
+						</ul>
+					</div>
+				</div>						
 			</div>
 		</div>
-		
-	</div>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="#">Users</a>
+		  <a href="#">Add User</a>
+		</div>
+	<script src="js/jquery.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
 </body>
+	<script>
+		function openNav() {
+		    document.getElementById("mySidenav").style.width = "150px";
+		}
+
+		function closeNav() {
+		    document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
 </html>
