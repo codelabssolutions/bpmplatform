@@ -13,60 +13,58 @@
 		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
 	</form>	
 	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<form autocomplete="off" action="#" th:action="@{/registration}"
-					th:object="${user}" method="post" class="form-horizontal"
-					role="form">
-					<h2>Registration Form</h2>
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label>
-						<input type="text" th:field="*{name}" placeholder="Name"
-								class="form-control" /> 
+<div class="container">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+				<form  action="/registration" method="post" style="box-shadow: 0px 0px 3px 1px rgba(0,0,0,.16); padding: 40px 30px; margin-top:30px">
+				 	<div class="row">
+				 		<h1 class="text-center">Registraion Form</h1>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>First Name</label>
+			                    <input type="text"  name="name" class="form-control" placeholder="First Name" required >
+			                  
+							</div>
 						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-								class="validation-message"></label>
-							<input type="text" th:field="*{lastName}"
-								placeholder="Last Name" class="form-control" /> 
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Last Name</label>
+								<input type="text"  name="lastName" class="form-control" placeholder="Last Name" required>
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-								class="validation-message"></label>
-						</div>
+						<label>Comapany Name</label>
+						<input type="text" name="companyName" class="form-control" placeholder="Enter Your Comapany Name" required>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
-						</div>
+						<label>Phone Number</label>
+						<input type="text" name="contact" class="form-control" placeholder="Enter Your Number" required>
 					</div>
-
 					<div class="form-group">
-						<div class="col-sm-9">
-							<button type="submit" class="btn btn-primary btn-block">Register User</button>
+						<label>Email</label>
+						<input type="text" name="email" class="form-control" placeholder="Enter Your Email Address" required>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" name="password" class="form-control" placeholder="Password" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Confirm Password</label>
+								<input type="password"  name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+							</div>
 						</div>
 					</div>
-					
-					<span th:utext="${successMessage}"></span>
-					
-					
-				</form>
-			</div>
+					 <div class="submit_button text-center">
+			      		<button type="submit" class="btn btn-primary" style="padding:10px 50px;">Register</button>	
+			      	</div>
+			 </form>
 		</div>
+		<div class="col-md-3"></div>
 	</div>
-
 </body>
 </html>

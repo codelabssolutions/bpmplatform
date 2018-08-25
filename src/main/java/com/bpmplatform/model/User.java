@@ -27,25 +27,47 @@ public class User {
 	@Column(name = "user_id")
 	private int id;
 	@Column(name = "email")
-	@Email(message = "*Please provide a valid Email")
-	@NotEmpty(message = "*Please provide an email")
+	@Email//(message = "*Please provide a valid Email")
+	@NotEmpty//(message = "*Please provide an email")
 	private String email;
 	@Column(name = "password")
-	@Length(min = 5, message = "*Your password must have at least 5 characters")
-	@NotEmpty(message = "*Please provide your password")
+	@Length(min = 5 /* message = "*Your password must have at least 5 characters"*/)
+	@NotEmpty//(message = "*Please provide your password")
 	@Transient
 	private String password;
 	@Column(name = "name")
-	@NotEmpty(message = "*Please provide your name")
+	@NotEmpty//(message = "*Please provide your name")
 	private String name;
 	@Column(name = "last_name")
-	@NotEmpty(message = "*Please provide your last name")
+	@NotEmpty//(message = "*Please provide your last name")
 	private String lastName;
 	@Column(name = "active")
 	private int active;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+	@Column(name = "contact_number")
+	@NotEmpty
+	private String contact;
+	@Column(name = "companyname")
+	@NotEmpty//(message = "*Please provide your company name")
+	private String companyName;
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 
 	public int getId() {
 		return id;
