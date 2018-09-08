@@ -7,21 +7,7 @@
 </head>
 
 <body>
-
 	<div th:replace="fragments/navigation :: navigation"></div>
-  
-     <div class="container" id="mainContent">
-
-		<div class="row">
-			
-				<div layout:fragment="content"></div>
-			
-			
-		</div>
-	</div>
-	
-	<div th:replace="fragments/footer :: footer"></div>
-
+    	<div layout:fragment="content"></div>
 </body>
-
 </html>
