@@ -2,13 +2,14 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
 <head>
 <title>Layout</title>
+
 </head>
 <body>
 	<div layout:fragment="content">
 		<div class="container">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-				<form  action="/admin/registration1" method="post" >
+				<form class="reg-form"  action="/admin/registration1" method="post" >
 				 	<div class="row">
 				 		<div class="col-md-6">
 							<div class="form-group">
@@ -51,7 +52,7 @@
 						</div>
 					</div>
 					 <div class="submit_button text-center">
-			      		<button type="submit" class="btn btn-primary" style="padding:10px 50px;">Register</button>	
+			      		<button type="submit" class="btn btn-primary" style="padding:10px 50px;">Add User</button>	
 			      	</div>
 			 </form>
 		 </div>
