@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" layout:decorator="layout/layout">
+
+<head>
+<title>Layout</title>
+</head>
+<body>
+<head></head>
+<body>
+<div layout:fragment="content">
+     <div class="span12">
+        <table id="myTableId" dt:table="true" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+              <th>ID</th>
+			  <th>First Name</th>
+			  <th>Last Name</th>
+			  <th>Email</th>
+			  <th>Company Name</th>
+			  <th>Phone No</th>
+			  <th>User Status</th>
+			  <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr th:each="user : ${userList}">
+                <td th:text="${user?.id}"></td>
+                <td th:text="${user?.firstName}"></td>
+                <td th:text="${user?.lastName}"></td>
+                <td th:text="${user?.email}"></td>
+                <td th:text="${user?.companyName}"></td>
+                <td th:text="${user?.contact}"></td>
+                <td th:text="${user?.active}"></td> 
+                <td><a href="#" data-toggle="modal" data-target="#myModal-1"><i class="far fa-edit"></i></a></td> 
+             </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
+	
