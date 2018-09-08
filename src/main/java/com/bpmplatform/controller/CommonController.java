@@ -1,7 +1,9 @@
 package com.bpmplatform.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bpmplatform.model.Role;
 import com.bpmplatform.model.User;
 import com.bpmplatform.service.UserService;
 
@@ -40,13 +43,17 @@ public class CommonController {
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
+		Set<Role> roles=new HashSet<Role>();
+		Role role=new Role();
+		role.setId(1);
+		role.setRole("ADMIN");
+		roles.add(role);
+		user.setRoles(roles);
+		
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (userExists != null) {
 			bindingResult.rejectValue("email", "error.user",
 					"There is already a user registered with the email provided");
-		}
-		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("login");
 		} else {
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
@@ -59,14 +66,19 @@ public class CommonController {
 	@RequestMapping(value = "/admin/registration1", method = RequestMethod.POST)
 	public ModelAndView createNewUser1(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
+		Set<Role> roles=new HashSet<Role>();
+		Role role=new Role();
+		role.setId(1);
+		role.setRole("ADMIN");
+		roles.add(role);
+		user.setRoles(roles);
+		
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (userExists != null) {
 			bindingResult.rejectValue("email", "error.user",
 					"There is already a user registered with the email provided");
 		}
-		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("userlist");
-		} else {
+		 else {
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
@@ -107,7 +119,7 @@ public class CommonController {
 			userResponse.setCompanyName(user.getCompanyName());
 			userResponse.setContact(user.getContact());
 			userResponse.setEmail(user.getEmail());
-			userResponse.setFirstName(user.getLastName());
+			userResponse.setFirstName(user.getFirstName());
 			userResponse.setLastName(user.getLastName());
 			userResponse.setId(user.getId());
 			userList.add(userResponse);
