@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bpmplatform.domainobj.UserResponse;
 import com.bpmplatform.model.Role;
 import com.bpmplatform.model.User;
 import com.bpmplatform.service.UserService;
-
-import com.bpmplatform.domainobj.UserResponse;
 
 /**
  * @author Dhiraj
@@ -109,7 +108,7 @@ public class CommonController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/admin/userlist")
+    @RequestMapping(value = "/admin/userlist")
 	public String getUserList(Model model) {
 		List<UserResponse> userList = new ArrayList<>(100);
 		List <User> allUser=userService.findAllUser();  
@@ -127,4 +126,13 @@ public class CommonController {
 	    model.addAttribute("userList", userList);;
 		return "/userlist";
 	}
+    @RequestMapping(value = "/admin/addnotification")
+	public String createNotification() {
+		return "/addnotification";
+	}
+    
+    @RequestMapping(value = "/admin/viewnotification")
+   	public String viewNotification() {
+   		return "/viewnotification";
+   	}
 }

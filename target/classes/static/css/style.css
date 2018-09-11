@@ -1,3 +1,4 @@
+/*Login Form Css*/
 .form-area{
 		  box-shadow: 0px 0px 3px 1px rgba(0,0,0,.16);
 		  padding: 40px 30px;
@@ -17,6 +18,7 @@
 	 	font-size: 16px;
 }
 
+/*Header Css*/
 .left-area{
 	margin:10px 0;
 }
@@ -25,15 +27,15 @@
 }
 .right-area ul li a:hover,.right-area ul li a:active,.right-area ul li a:focus {
 	background: none;
+	color:#000;
 }
 
 .link{
 	margin-right: 20px;	
 }
 .link li a{
-	padding:8px;
 	font-size: 16px;
-	color: #000;
+	color: #000 !important;
 }
 .link li a i{
 	margin-right: 10px;
@@ -43,6 +45,7 @@
 .link li a:hover,.link li a:focus,.link li a:active {
 	text-decoration: none;
 	background: none;
+	border-color:none;
 }
 
 .link .sub-menu{
@@ -51,11 +54,11 @@
 }
 .link .sub-menu li{
     padding: 0;
-    background: #000;
-    color: 
+    background-color:#f8f8f8;
+    color:#000;
 }
 .link .sub-menu li:hover{
-    background: #fff;
+    background: #f8f8f8;
 }
 .link .sub-menu li:hover a,.link .sub-menu li:active a{
     color: #000;
@@ -64,8 +67,8 @@
     padding: 10px 24px;
     border-bottom: 1px solid #ddd;
     font-size:14px;
-    color:#fff;
-    font-weight: 600;
+    color:#000 !important;
+    font-weight:400;
 }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
     background: none !important;
@@ -80,3 +83,9 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+/*Registration Form css*/
+
+.reg-form{
+	box-shadow: 0px 0px 3px 1px rgba(0,0,0,.16); padding: 40px 30px; margin-top:30px;
+}	
