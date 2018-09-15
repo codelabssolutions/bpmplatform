@@ -2,6 +2,7 @@ package com.bpmplatform.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
-/*
+
 @Entity
 @Table(name = "notification_detail")
 public class NotificationDetails {
@@ -20,9 +21,12 @@ public class NotificationDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "notification_id")
 	private int id;
-	@Column(name = "notifcation_message")
+	@Column(name = "notifcation_message",columnDefinition="LONGTEXT")
 	@NotEmpty//(message = "*Please provide an email")
 	private String notifcationMessage;
+	@Column(name = "notifcation_title")
+	@NotEmpty//(message = "*Please provide an email")
+	private String notifcationTitle;
 	@Column(name = "is_publish")
 	private Boolean isPublish;
 	@ManyToOne
@@ -35,6 +39,9 @@ public class NotificationDetails {
 	private Date createdDate;
 	@Column(name = "publishDate")
 	private Date publishDate;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private UserXnotification userXnotification;
+	
 	public int getId() {
 		return id;
 	}
@@ -77,5 +84,11 @@ public class NotificationDetails {
 	public void setPublishDate(Date publishDate) {
 		this.publishDate = publishDate;
 	}
+	public String getNotifcationTitle() {
+		return notifcationTitle;
+	}
+	public void setNotifcationTitle(String notifcationTitle) {
+		this.notifcationTitle = notifcationTitle;
+	}
 	
-} */
+}

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -48,18 +49,15 @@ public class User {
 	private Set<Role> roles;
 	@Column(name = "contact_number")
 	@NotEmpty
-	private String contact;
+	private String contactNo;
 	@Column(name = "companyname")
 	@NotEmpty//(message = "*Please provide your company name")
 	private String companyName;
-
-	public String getContact() {
-		return contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+	@ManyToOne(cascade = CascadeType.ALL)
+	private NotificationDetails notificationDetails;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private UserXnotification userXnotification;
+	
 
 	public String getCompanyName() {
 		return companyName;
@@ -127,4 +125,28 @@ public class User {
 		this.roles = roles;
 	}
 
+	public NotificationDetails getNotificationDetails() {
+		return notificationDetails;
+	}
+
+	public void setNotificationDetails(NotificationDetails notificationDetails) {
+		this.notificationDetails = notificationDetails;
+	}
+
+	public UserXnotification getUserXnotification() {
+		return userXnotification;
+	}
+
+	public void setUserXnotification(UserXnotification userXnotification) {
+		this.userXnotification = userXnotification;
+	}
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
+	}
+    
 }

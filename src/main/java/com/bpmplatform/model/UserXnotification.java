@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-/*
+
 @Entity
 @Table(name = "user_x_notification")
 public class UserXnotification {
@@ -17,14 +17,14 @@ public class UserXnotification {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "notification_id")
-	@ManyToOne(optional=true,targetEntity=NotificationDetails.class)
-	@JoinColumn(name="notification_id")
+	@ManyToOne
+	@JoinColumn(name="notificationDetailsfk")
 	private NotificationDetails notificationDetails;
-	@Column(name = "user_id")
-	@ManyToOne(optional=true,targetEntity=User.class)
-	@JoinColumn(name="user_id")
-	private User user;
+	@ManyToOne
+	@JoinColumn(name="notificationfk")
+	private User notificationOwner;
+	@Column(name = "read_status")
+	private Boolean readStatus;
 	
 	public int getId() {
 		return id;
@@ -38,15 +38,17 @@ public class UserXnotification {
 	public void setNotificationDetails(NotificationDetails notificationDetails) {
 		this.notificationDetails = notificationDetails;
 	}
-	public User getUser() {
-		return user;
+	public User getNotificationOwner() {
+		return notificationOwner;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setNotificationOwner(User notificationOwner) {
+		this.notificationOwner = notificationOwner;
 	}
-	
-	
-	
-	
+	public Boolean getReadStatus() {
+		return readStatus;
+	}
+	public void setReadStatus(Boolean readStatus) {
+		this.readStatus = readStatus;
+	}
+
 }
-*/

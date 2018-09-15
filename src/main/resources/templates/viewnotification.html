@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" layout:decorator="layout/layout">
 
 <head>
 <title>View Notification</title>
+<style>
+	.block-area{
+			box-shadow: 0px 0px 3px 1px rgba(0,0,0,.16);
+			padding: 15px;  
+		}
+		.title{
+			margin: 0;
+		}
+		.subtitle{
+			margin:10px 0;
+		}
+	</style>
 </head>
 <body>
 	<div layout:fragment="content">
-   	</div>
+	 <table id="myTableId" dt:table="true" class="table table-bordered table-hover">
+           <tbody>
+             <tr th:each="notification : notifications">
+                <td >
+                   <div class="col-md-4">
+						<div class="block-area">
+					        <h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
+							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
+						</div>
+			       </div>
+			    </td>
+                <td >
+	                <div class="col-md-4">
+							<div class="block-area">
+							<h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
+							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
+						   </div>
+				    </div>
+                </td>
+                <td >
+	                <div class="col-md-4">
+					  <div class="block-area">
+						    <h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
+							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
+					</div>
+			      </div>
+                </td>
+            </tr>
+        </tbody>
+       </table> 
+	</div>
 </body>
 </html>
