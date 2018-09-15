@@ -17,6 +17,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bpmplatform.domainobj.AjaxResponseBody;
 import com.bpmplatform.domainobj.NotificationDetailsResponse;
@@ -81,7 +82,7 @@ public class NotificationController {
   	}
       
     @RequestMapping(value = "/admin/viewnotification")
-   	public String viewNotification(Model model) {
+   	public ModelAndView viewNotification(ModelAndView modelAndView) {
     	List<NotificationDetailsResponse> notifications = new ArrayList<>(100);
     	User user = commonUtility.getUserByUserName(); //get logged in username
 		List <NotificationDetails> notficationList=notifcationRepository.findNotificationDetailsByUser(user);
@@ -92,8 +93,9 @@ public class NotificationController {
 			notificationDetailsResponse.setNotificationId(notfication1.getId());
 			notifications.add(notificationDetailsResponse);
 		}
-	    model.addAttribute("notifications", notifications);;  
-     	return "/viewnotification";
+		modelAndView.addObject("notifications", notifications);
+	    modelAndView.setViewName("viewnotification");
+     	return modelAndView;
    }
 
 }

@@ -9,9 +9,11 @@
 <body>
 	<div th:replace="fragments/navigation :: navigation"></div>
    	<div layout:fragment="content"></div>
-    <div th:insert="footer :: copy"><div class="text-center" style="position: absolute; right: 10px; bottom:0px ;">
+    <div th:insert="footer :: copy">
+      <div class="text-center" style="position: absolute; right: 10px; bottom:0px ;">
 			<a href="viewnotification" style="font-size: 32px; color: #000;"><i class="far fa-bell"></i></a>	
 			<p style="color:#000; font-weight:400; font-size:14px;">Notifications</p>
-		</div></div>
+	  </div>
+	</div>
 </body>
 </html>

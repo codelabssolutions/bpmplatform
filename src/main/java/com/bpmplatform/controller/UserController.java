@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bpmplatform.domainobj.UserRequest;
 import com.bpmplatform.model.User;
-import com.bpmplatform.repository.RoleRepository;
 import com.bpmplatform.service.UserService;
 
 /**
@@ -25,11 +24,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	@Autowired
-    private RoleRepository roleRepository;
-	
-	
-	
+		
 
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
@@ -37,7 +32,6 @@ public class UserController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
-
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid UserRequest userRequest, BindingResult bindingResult) {
 		return userService.createUser(userRequest);
@@ -65,7 +59,6 @@ public class UserController {
 	public String draw() {
 		return "/index";
 	}
-
     @RequestMapping(value = "/admin/userlist")
 	public ModelAndView getUserList(ModelAndView model) {
 		return userService.getUserList(model);

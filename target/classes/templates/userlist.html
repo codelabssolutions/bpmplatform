@@ -30,8 +30,15 @@
                 <td th:text="${user?.email}"></td>
                 <td th:text="${user?.companyName}"></td>
                 <td th:text="${user?.contact}"></td>
-                <td th:text="${user?.active}"></td> 
-                <td><a href="#" data-toggle="modal" data-target="#myModal-1"><i class="far fa-edit"></i></a></td> 
+                <td th:text="${user?.active}">
+                <div th:switch="${user.role}"> 
+				  <p th:case="'admin'">User is an administrator</p>
+				  <p th:case="#{roles.manager}">User is a manager</p>
+				  <p th:case="*">User is some other thing</p> 
+				</div>
+                </td> 
+                 
+               <td><a href="#" data-toggle="modal" data-target="#myModal-1"><i class="far fa-edit"></i></a></td> 
              </tr>
         </tbody>
     </table>
