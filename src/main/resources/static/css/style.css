@@ -1,8 +1,7 @@
 /*Login Form Css*/
 .form-area{
-		  box-shadow: 0px 0px 3px 1px rgba(0,0,0,.16);
-		  padding: 40px 30px;
-		  margin-top: 80px
+		  padding: 20px 50px;
+		  margin-top: 10px
 }
 .form-area h1{
 		 text-align: center;
@@ -16,6 +15,45 @@
 }	
 .form-area label{
 	 	font-size: 16px;
+}
+
+.user-login{
+	padding:20px 50px;
+	margin-top:20px;
+}
+.user-login h4{
+	margin:10px 0;
+	margin-bottom:0;
+}
+.user-login ul{
+	list-style:none;
+}
+.user-login ul li{
+	margin-top:10px;
+}
+.admin-login{
+	padding:0 50px;
+}
+.admin-login h4{
+	margin:10px 0;
+	margin-bottom:0;
+}
+.admin-login ul{
+	list-style:none;
+}
+.admin-login ul li{
+	margin-top:10px;
+}
+.user-login::before{
+ 	position: absolute;
+    content: "";
+    width: 80%;
+    height: 0;
+    right: -30%;
+    border: 1px solid #2f2d2d;
+    transform: rotate(90deg);
+    top: 80%;
+    bottom: 0;
 }
 
 /*Header Css*/
