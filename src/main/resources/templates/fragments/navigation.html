@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 <title>Header</title>
@@ -20,7 +22,7 @@
 							<div class="input-group input-area">
 						      <input type="text" class="form-control" placeholder="Search for...">
 						      <span class="input-group-btn">
-						        <button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default" type="button">
+						        <button  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default" type="button">
 						        	<span class="caret"></span>
     								<span class="sr-only">Toggle Dropdown</span>
 						        </button>
@@ -28,19 +30,21 @@
 						    </div>
 						</div>
 					</div>	
-					<div class="col-lg-6 right-area">
-						<ul class="nav navbar-nav navbar-right link">
+				<div class="col-lg-6 right-area">
+				 <ul class="nav navbar-nav navbar-right link">
 							<li><a href="#"><i class="fas fa-trash-alt"></i>Delet Busniess Process</a></li>
 							<li><a href="home"><i class="fas fa-plus"></i>New Busniess Process</a></li>
-							<li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-							<li class="dropdown"><a href="#" dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></a>
-								<ul class="dropdown-menu sub-menu" aria-labelledby="dropdownMenu2" >
-								<li><a href="userlist">Users List</a></li>
-								<li><a href="registrationForm">Add User</a></li>
-								<li><a href="addnotification">Create Notification</a></li>
-							</ul>
+							<li><a href="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						    <li sec:authorize="hasRole('ADMIN')" class="dropdown"><a href="#"   type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></a>
+									<ul class="dropdown-menu sub-menu" aria-labelledby="dropdownMenu2" >
+									<li><a href="userlist">Users List</a></li>
+									<li><a href="registrationForm">Add User</a></li>
+									<li><a href="addnotification">Create Notification</a></li>
+								 </ul>
 							</li>
+							
 						</ul>
+						
 					</div>
 				</div>						
 			</div>

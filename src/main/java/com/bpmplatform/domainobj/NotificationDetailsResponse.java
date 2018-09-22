@@ -2,9 +2,9 @@ package com.bpmplatform.domainobj;
 
 public class NotificationDetailsResponse {
 
-	private int notificationId;
-	private String notifcationMessage;
-	private String notifcationTitle;
+	public int notificationId;
+	public String notifcationMessage;
+	public String notifcationTitle;
 	public int getNotificationId() {
 		return notificationId;
 	}

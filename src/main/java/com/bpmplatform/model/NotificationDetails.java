@@ -2,7 +2,6 @@ package com.bpmplatform.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,8 +38,7 @@ public class NotificationDetails {
 	private Date createdDate;
 	@Column(name = "publishDate")
 	private Date publishDate;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private UserXnotification userXnotification;
+	
 	
 	public int getId() {
 		return id;

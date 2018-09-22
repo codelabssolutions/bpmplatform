@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" layout:decorator="layout/layout">
-
 <head>
 <title>View Notification</title>
 <style>
@@ -18,36 +17,13 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	 <table id="myTableId" dt:table="true" class="table table-bordered table-hover">
-           <tbody>
-             <tr th:each="notification : notifications">
-                <td >
-                   <div class="col-md-4">
-						<div class="block-area">
-					        <h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
-							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
-						</div>
-			       </div>
-			    </td>
-                <td >
-	                <div class="col-md-4">
-							<div class="block-area">
-							<h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
-							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
-						   </div>
-				    </div>
-                </td>
-                <td >
-	                <div class="col-md-4">
-					  <div class="block-area">
-						    <h1 class="title" th:text="${notification?.notifcationTitle}" ></h1>		
-							<p class="subtitle" th:text="${notification?.notifcationMessage}"></p>
-					</div>
-			      </div>
-                </td>
-            </tr>
-        </tbody>
-       </table> 
+	 <div class="row" th:each="noti : ${notifications}">
+			<div class="col-md-4" >
+				<div class="block-area" th:text=${noti?.notifcationMessage}>
+					
+				</div>
+			</div>
+	  </div>
 	</div>
 </body>
 </html>

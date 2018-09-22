@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -53,11 +52,9 @@ public class User {
 	@Column(name = "companyname")
 	@NotEmpty//(message = "*Please provide your company name")
 	private String companyName;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private NotificationDetails notificationDetails;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private UserXnotification userXnotification;
-	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_notification", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "notification_id"))
+	private Set<NotificationDetails> notificationDetails;
 
 	public String getCompanyName() {
 		return companyName;
@@ -124,21 +121,13 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-	public NotificationDetails getNotificationDetails() {
+	
+	public Set<NotificationDetails> getNotificationDetails() {
 		return notificationDetails;
 	}
 
-	public void setNotificationDetails(NotificationDetails notificationDetails) {
+	public void setNotificationDetails(Set<NotificationDetails> notificationDetails) {
 		this.notificationDetails = notificationDetails;
-	}
-
-	public UserXnotification getUserXnotification() {
-		return userXnotification;
-	}
-
-	public void setUserXnotification(UserXnotification userXnotification) {
-		this.userXnotification = userXnotification;
 	}
 
 	public String getContactNo() {

@@ -9,8 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class BPMPlatformApplication {
+	//@Autowired
+	//private UserService userService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BPMPlatformApplication.class, args);
+		
 	}
+	
+	
 }

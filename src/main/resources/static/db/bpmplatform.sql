@@ -33,11 +33,7 @@ CREATE TABLE `role` (
 -- Dumping data for table `role`
 --
 
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'ADMIN');
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
-UNLOCK TABLES;
+LOCK TABLES `role` WRITE;UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -63,7 +59,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (4,1,'dhirajsingh@lmsin.com','singh','dhiraj','$2a$10$98xkdIrQ4Y56viSEc/U0L.D/RD5FPmtR5KU6VtHjEk/uKk0WToY8u');
+INSERT INTO `user` VALUES (4,1,'admin@gamil.com','Dhiraj','dhiraj','$2a$10$98xkdIrQ4Y56viSEc/U0L.D/RD5FPmtR5KU6VtHjEk/uKk0WToY8u');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

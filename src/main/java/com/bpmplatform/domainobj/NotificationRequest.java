@@ -2,15 +2,15 @@ package com.bpmplatform.domainobj;
 
 public class NotificationRequest {
 
-	private String notifcationMessage;
-	private Boolean isPublish;
-	private Integer creatorId ;
-	private String notifcationTitle;
-	public String getNotifcationMessage() {
-		return notifcationMessage;
+	public String notificationMessage;
+	public Boolean isPublish;
+	public Integer creatorId ;
+	public String notificationTitle;
+	public String getNotificationMessage() {
+		return notificationMessage;
 	}
-	public void setNotifcationMessage(String notifcationMessage) {
-		this.notifcationMessage = notifcationMessage;
+	public void setNotificationMessage(String notificationMessage) {
+		this.notificationMessage = notificationMessage;
 	}
 	public Boolean getIsPublish() {
 		return isPublish;
@@ -24,11 +24,11 @@ public class NotificationRequest {
 	public void setCreatorId(Integer creatorId) {
 		this.creatorId = creatorId;
 	}
-	public String getNotifcationTitle() {
-		return notifcationTitle;
+	public String getNotificationTitle() {
+		return notificationTitle;
 	}
-	public void setNotifcationTitle(String notifcationTitle) {
-		this.notifcationTitle = notifcationTitle;
+	public void setNotificationTitle(String notificationTitle) {
+		this.notificationTitle = notificationTitle;
 	}
 	
 	
