@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +27,9 @@ public class UserServiceImpl implements UserService{
 	private UserRepository userRepository;
 	@Autowired
     private RoleRepository roleRepository;
-  	@Override
+  	@Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+  	
 	public ModelAndView createUser(UserRequest userRequest) {
 		ModelAndView modelAndView = new ModelAndView();
 		User user =new User();
@@ -47,7 +50,7 @@ public class UserServiceImpl implements UserService{
 			user.setFirstName(userRequest.getFirstName());
 			user.setLastName(userRequest.getLastName());
 			user.setEmail(userRequest.getEmail());
-			user.setPassword(userRequest.getPassword());
+			user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
 			userRepository.save(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
